@@ -1,0 +1,106 @@
+.header {
+    background: #333;
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        
+        &-logo {
+            display: flex;
+            max-width: 200px;
+            & img {
+                width: 100%;
+            }
+        }
+    
+        &-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            
+            
+        }
+    
+        &-link {
+            text-decoration: none;
+            font-weight: 400;
+            color: var(--link-nav-color);
+    
+            &.active {
+                color: var(--primary-color);
+            }
+
+            @include _460px {
+                font-size: 25px;
+            }
+        }
+    
+        @include _768px {
+            display: block;
+            
+            &-item {
+                justify-content: space-between;
+            }
+        }
+    
+        @include _460px {
+            display: flex;
+            
+            &-item {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 90vw;
+                height: 100vh;
+                background: #333;
+                padding: 2rem 0 0 2.5rem;
+                transform: translateX(100%);
+                transition: .2s;
+                z-index: 11;
+                text-align: left;
+                
+                flex-direction: column;
+                justify-content: unset;
+                align-items: unset;
+    
+                &.is-active {
+                    transform: translateX(0);
+                }
+            }
+        }
+    
+    }
+}
+
+.hamburger {
+    display: none;
+    z-index: 12;
+
+    @include _460px {
+        display: inline-flex;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: 10;
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.noscroll {
+    overflow: hidden;
+}
